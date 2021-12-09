@@ -8,10 +8,6 @@ function LoadImg() {
 
 //Run function to manipulate data
 function DisplayImg(data) {
-    //console.log(data[2]['Species Illustration Photo'].src)
-    //console.log(data[5]['Image Gallery'])
-    //console.log(data[2]['Taste']);
-    //console.log(data[2]['Texture']);
     const fish_display = document.getElementById('fish-img');
 
     // Calling New post function
@@ -25,7 +21,7 @@ function DisplayImg(data) {
         const fishes_div = document.createElement('div');
         const fishes_img = document.createElement('img');
         const label = document.createElement('label');
-
+        const Description = document.createElement('label');
 
         //elements for like-button
         const like_btn = document.createElement('button');
@@ -33,6 +29,19 @@ function DisplayImg(data) {
         // Check if species photo exist
         if (data[i]['Species Illustration Photo'] !== null) {
             // console.log(data[i])
+
+            //Adding Taste & Text to Fish
+
+            // if (data[i]['Texture'] !== null) {
+            //     const tasteText = data[i]['Texture']  ? data[i]['Texture']: data[i]['Taste'] + data[i]['Texture'];
+            //     const stripTasteText = tasteText.replace(/<[^>]+>/g, '');
+            //     //console.log(data[i]['Texture']);
+            //     console.log(tasteText)
+            //     //console.log(stripTasteText)
+            //     //console.log(data[i]['Texture'])
+            //     // console.log(tasteText)
+            // }
+            
 
             // Get species photo and set the image src
             const f = data[i]['Species Illustration Photo'].src;
@@ -55,6 +64,15 @@ function DisplayImg(data) {
             label.appendChild(document.createTextNode(name));
             label.setAttribute("style", "width:200px; height:50px; background-color:white; padding: 5px");
 
+            //Create label for Taste Description
+            const taste_descrip = data[i]['Taste'];
+            const text_descrip  =  data[i]['Texture'] ? data[i]['Texture']:'';
+            const stripTaste_descrip= taste_descrip.replace(/<[^>]+>/g, '');
+            const stripText_descrip = text_descrip.replace(/<[^>]+>/g, '');
+            const tast_textdescrip = stripTaste_descrip + stripText_descrip
+            Description.appendChild(document.createTextNode(`${tast_textdescrip}`));
+            Description.setAttribute("style", "width:200px; height:50px; padding: 5px");
+
             // Append species image to div
             fishes_div.append(fishes_img);
 
@@ -63,6 +81,7 @@ function DisplayImg(data) {
 
             // Append species label to div
             fishes_div.append(label);
+            fishes_div.append(Description)
 
             // Append div containing species photo and name to parent div
             fish_display.append(fishes_div);
@@ -78,7 +97,7 @@ function newPost(e) {
     //form elements
     const inputimg = document.getElementById('fish-detail');
 
-    const formDiv = document.createElement('div')
+    const formDiv = document.createElement('div');
     const newInputURL = document.createElement('img');
     const newInputname = document.createElement('p');
     const newInputTaste = document.createElement('p');
@@ -101,7 +120,7 @@ function newPost(e) {
     fishObjectTaste = document.getElementById('how-tasty').value;
     newInputTaste.innerHTML = `Taste: ${fishObjectTaste}/10`;
     fishObjectTast = '';
-    
+
     //Adding Fish Comments
     fishObjectcomment = document.getElementById('new-comment').value;
     newInputcomment.innerHTML = `Comment: ${fishObjectcomment}`;
@@ -112,9 +131,10 @@ function newPost(e) {
     formDiv.append(newInputURL);
     formDiv.append(newInputTaste);
     formDiv.append(newInputcomment);
-    formDiv.setAttribute("style", "margin: 2%")
+    formDiv.setAttribute("style", "margin: 2%");
     inputimg.append(formDiv);
 
 }
 
 document.addEventListener('DOMContentLoaded', LoadImg);
+
