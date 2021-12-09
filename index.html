@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>fishRmen</title>
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+  <header>
+
+    <img src='fishRmen.PNG' style="width:100%;height:400%;" />
+
+  </header>
+  <form class="search-fish" action="action_page.php">
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+
+
+  <div id='fish-img'>
+    <!-- Images Here -->
+  </div>
+  <br>
+  <br>
+  <!-- fish Details -->
+
+  <div id="fish-detail">
+
+  </div>
+
+
+  </p>
+  <!-- Fish Form -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <form id="fish-review">
+    <h4>Add Your Catch </h4>
+    <label for="name">Fish Name: </label>
+    <input type="text" name="name" id="new-name" />
+    <label for="image" id='fish-pic'>Insert Picture URL: </label>
+    <input type="url" name="image" id="new-image">
+    <div id="display_image"></div>
+    <br>
+    <label for="Taste">Tasty: </label>
+    <input type="range" min="0" max="10" step="1" list="tickmarks" name="Taste" id="how-tasty" style="padding:0;">
+    <datalist id="tickmarks">
+      <option value="0" label="0"></option>
+      <option value="1"></option>
+      <option value="2"></option>
+      <option value="3"></option>
+      <option value="4"></option>
+      <option value="5" label=" 5"></option>
+      <option value="6"></option>
+      <option value="7"></option>
+      <option value="8"></option>
+      <option value="9"></option>
+      <option value="10" label="10"></option>
+    </datalist>
+    <br>
+    <label for="new-comment">Comment: </label>
+    <textarea name="new-comment" id="new-comment"></textarea>
+    <input type="submit" value="Add" />
+  </form>
+  <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
