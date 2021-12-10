@@ -13,9 +13,16 @@ body {
   align-items: center;
 }
 #fish-img {
-  text-align: center;
-  column-count: 3;
-  width: 100%;
+  --gap: 16px;
+  --num-cols: 3;
+  --row-height: 200px;
+  box-sizing: border-box;
+  padding: var(--gap);
+  display: grid;
+  grid-template-columns: repeat(var(--num-cols), 1fr);
+  grid-auto-rows: var(--row-height);
+  gap: var(--gap);
+  object-fit: cover;
 }
 header {
   padding: 60px;
