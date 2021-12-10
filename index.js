@@ -15,7 +15,7 @@ function DisplayImg(data) {
     form.addEventListener('submit', (e) => { newPost(e) })
 
     //Iterate # of Fish in API
-    for (let i = 20; i < 30; i++) {
+    for (let i = 40; i < 50; i++) {
 
         // Create elements 
         const fishes_div = document.createElement('div');
@@ -29,19 +29,6 @@ function DisplayImg(data) {
         // Check if species photo exist
         if (data[i]['Species Illustration Photo'] !== null) {
             // console.log(data[i])
-
-            //Adding Taste & Text to Fish
-
-            // if (data[i]['Texture'] !== null) {
-            //     const tasteText = data[i]['Texture']  ? data[i]['Texture']: data[i]['Taste'] + data[i]['Texture'];
-            //     const stripTasteText = tasteText.replace(/<[^>]+>/g, '');
-            //     //console.log(data[i]['Texture']);
-            //     console.log(tasteText)
-            //     //console.log(stripTasteText)
-            //     //console.log(data[i]['Texture'])
-            //     // console.log(tasteText)
-            // }
-            
 
             // Get species photo and set the image src
             const f = data[i]['Species Illustration Photo'].src;
@@ -58,16 +45,16 @@ function DisplayImg(data) {
                 like_btn.innerText = str;
             })
 
-
             // Create label for species name
             const name = data[i]['Species Illustration Photo']['title'] ? data[i]['Species Illustration Photo']['title'] : data[i]['Species Name'];
             label.appendChild(document.createTextNode(name));
             label.setAttribute("style", "width:200px; height:50px; background-color:white; padding: 5px");
 
+
             //Create label for Taste Description
             const taste_descrip = data[i]['Taste'];
-            const text_descrip  =  data[i]['Texture'] ? data[i]['Texture']:'';
-            const stripTaste_descrip= taste_descrip.replace(/<[^>]+>/g, '');
+            const text_descrip = data[i]['Texture'] ? data[i]['Texture'] : '';
+            const stripTaste_descrip = taste_descrip.replace(/<[^>]+>/g, '');
             const stripText_descrip = text_descrip.replace(/<[^>]+>/g, '');
             const tast_textdescrip = stripTaste_descrip + stripText_descrip
             Description.appendChild(document.createTextNode(`${tast_textdescrip}`));
@@ -136,5 +123,28 @@ function newPost(e) {
 
 }
 
-document.addEventListener('DOMContentLoaded', LoadImg);
+//Search button
+const search_bar = document.getElementById('search-bar');
+search_bar.addEventListener('keydown', (e) => { search(e) })
+function search(e) {
+    if (e.keyCode === 13) {
+        e.preventDefault();
+        //Looking through fish div where fish images are located
+        const fish_display = document.getElementById('fish-img');
+        const input = search_bar.value; //input from the search bar
+        const display = fish_display.children;// Array of information we need to sort through to get fish name
 
+        //Looping through fish display image children 
+        for (let i = 0; i < display.length; i++) {
+            //Looking through fish display image children name to find match
+            if (display[i].children[2].outerText.toLowerCase().includes(input.toLowerCase())) {
+                //A match is found then do nothing
+                display[i].style.display = '';
+            } else { //If match is not found then hide
+                display[i].style.display = 'none';
+            }
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', LoadImg);
