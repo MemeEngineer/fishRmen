@@ -96,22 +96,22 @@ function newPost(e) {
     fishObjectimage = document.getElementById('new-image').value;
     newInputURL.src = fishObjectimage;
     newInputURL.setAttribute("style", "width:30%; height:30%;");
-    fishObjectimage = '';
+    
 
     //Adding Fish Name from Form
     fishObjectname = document.getElementById('new-name').value;
     newInputname.innerHTML = fishObjectname;
-    fishObjectname = '';
+    
 
     //Adding Fish Taste from Form
     fishObjectTaste = document.getElementById('how-tasty').value;
     newInputTaste.innerHTML = `Taste: ${fishObjectTaste}/10`;
-    fishObjectTast = '';
+    
 
     //Adding Fish Comments
     fishObjectcomment = document.getElementById('new-comment').value;
     newInputcomment.innerHTML = `Comment: ${fishObjectcomment}`;
-    fishObjectcomment = '';
+    
 
     //Appends form inputs to new div
     formDiv.append(newInputname);
@@ -120,7 +120,9 @@ function newPost(e) {
     formDiv.append(newInputcomment);
     formDiv.setAttribute("style", "margin: 2%");
     inputimg.append(formDiv);
-
+   
+    //Form Reset
+    document.getElementById("fish-review").reset();
 }
 
 //Search button
