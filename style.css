@@ -121,3 +121,21 @@ input {
 html {
   font-size: 62.5%;
 }
+i{
+  border-radius: 10px;
+  cursor: pointer;
+  /* background-color: black; */
+}
+#img1:hover {
+  background-color: rgb(216, 59, 59);
+  border: 2px solid  rgb(216, 59, 59);
+  box-shadow: 1px 1px 60px blue,
+              1px 1px 120px blue;
+}
+#img2:hover {
+  background-color: orange;
+  border: 2px solid orange;
+  box-shadow: 1px 1px 60px blue,
+              1px 1px 120px blue;
+}
+  
