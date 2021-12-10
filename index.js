@@ -33,9 +33,9 @@ function DisplayImg(data) {
             // Get species photo and set the image src
             const f = data[i]['Species Illustration Photo'].src;
             fishes_img.src = f;
-            fishes_img.setAttribute("style", "width:30%; height:30%;");
+            fishes_img.setAttribute("style", "width:20%; height:20%;");
             like_btn.textContent = "0 likes ♥"
-            like_btn.setAttribute("style", "margin-right: 1%;");
+            like_btn.setAttribute("style", "margin: 2%;");
 
             like_btn.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -48,7 +48,7 @@ function DisplayImg(data) {
             // Create label for species name
             const name = data[i]['Species Illustration Photo']['title'] ? data[i]['Species Illustration Photo']['title'] : data[i]['Species Name'];
             label.appendChild(document.createTextNode(name));
-            label.setAttribute("style", "width:200px; height:50px; background-color:white; padding: 5px");
+            label.setAttribute("style", "width:200px; height:50px; background-color:white; padding:2%");
 
 
             //Create label for Taste Description
@@ -58,7 +58,7 @@ function DisplayImg(data) {
             const stripText_descrip = text_descrip.replace(/<[^>]+>/g, '');
             const tast_textdescrip = stripTaste_descrip + stripText_descrip
             Description.appendChild(document.createTextNode(`${tast_textdescrip}`));
-            Description.setAttribute("style", "width:200px; height:50px; padding: 5px");
+            Description.setAttribute("style", "width:200px; height:50px; padding: 2%");
 
             // Append species image to div
             fishes_div.append(fishes_img);
@@ -150,3 +150,4 @@ function search(e) {
 }
 
 document.addEventListener('DOMContentLoaded', LoadImg);
+
