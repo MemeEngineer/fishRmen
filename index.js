@@ -2,9 +2,20 @@
 
 function LoadImg() {
     fetch('https://www.fishwatch.gov/api/species')
-        .then(response => response.json())
-        .then(data => DisplayImg(data));
-}
+        .then((response) => { 
+            if (response.status >= 200 && response.status <=299) {
+                return response.json();
+            } else {
+                throw Error(response.statusText);
+            }
+        })
+        .then((data) => {
+            DisplayImg(data)
+        }).catch((error) => {
+            error = alert('Please install Extension to run API:                                                      https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related?hl=en-US                              Reminder: Turn off Extension after use')
+            console.log(error);
+        }) 
+};
 
 //Run function to manipulate data
 function DisplayImg(data) {
@@ -150,4 +161,3 @@ function search(e) {
 }
 
 document.addEventListener('DOMContentLoaded', LoadImg);
-
