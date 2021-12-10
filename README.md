@@ -3,7 +3,7 @@
 
 Phase 1 of the Flatiron Coding Bootcamp
 
-We are tasked with creating our first web application. Our web app is a cross between Tinder X Fish. 
+We are tasked with creating our first web application. Our web app is a cross between Instagram X Fish. 
 
 Choosing to use an API from https://www.fishwatch.gov/developers
 
