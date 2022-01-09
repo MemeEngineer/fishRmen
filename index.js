@@ -12,7 +12,7 @@ function LoadImg() {
         .then((data) => {
             DisplayImg(data)
         }).catch((error) => {
-            error = alert('Please install Extension to run API:                                                      https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related?hl=en-US                              Reminder: Turn off Extension after use')
+            error = alert('Please install Extension to run API:                                                      https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related?hl=en-US                              Reminder: Turn off Extension after use and clear cache/history data')
             console.log(error);
         }) 
 };
@@ -20,7 +20,8 @@ function LoadImg() {
 //Run function to manipulate data
 function DisplayImg(data) {
     const fish_display = document.getElementById('fish-img');
-
+    
+            
     // Calling New post function
     const form = document.getElementById('fish-review');
     form.addEventListener('submit', (e) => { newPost(e) })
@@ -28,6 +29,8 @@ function DisplayImg(data) {
     //Iterate # of Fish in API
     for (let i = 40; i < 50; i++) {
 
+
+          
         // Create elements 
         const fishes_div = document.createElement('div');
         const fishes_img = document.createElement('img');
@@ -70,6 +73,9 @@ function DisplayImg(data) {
             const tast_textdescrip = stripTaste_descrip + stripText_descrip
             Description.appendChild(document.createTextNode(`${tast_textdescrip}`));
             Description.setAttribute("style", "width:200px; height:50px; padding: 2%");
+            
+            //console.log(taste_descrip);
+            //console.log(stripTaste_descrip);
 
             // Append species image to div
             fishes_div.append(fishes_img);
