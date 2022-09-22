@@ -1,4 +1,9 @@
 # fishRmen-
+![fishRmen Logo](https://user-images.githubusercontent.com/90629466/191638918-9480717e-e340-4b88-9599-01f8b42cdac4.PNG)
+
+An app that describes the taste and texture profile of fish using FishWatch.gov API
+Constructed in vanilla javascript, HTML, and CSS, users are able to upload, like, and rate their fish
+Fetches 30 static fish profiles per load (https://www.fishwatch.gov/api/species)
 
 
 Phase 1 of the Flatiron Coding Bootcamp
