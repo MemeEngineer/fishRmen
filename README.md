@@ -12,4 +12,4 @@ API URL: https://www.fishwatch.gov/api/species
 WARNING:  There is a CORS error on the frontend and requires users to install an extension to bypass the authorization to use the API please download https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc?hl=en-US and turn on the extension when using the repository. Then remember to turn off or remove the extension from your browser. If the extension is left on it causes loading errors on certain websites to be erratic if this happens please turn off or restart the computer and clear your cookies and cache.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-Demo: https://www.loom.com/share/5faa984c0bca47f4b4b390a2ec4b7457
+Demo Link: https://www.loom.com/share/5faa984c0bca47f4b4b390a2ec4b7457
